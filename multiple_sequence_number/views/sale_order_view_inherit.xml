@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_order_form_inherit" model="ir.ui.view">
+        <field name="name">sale.order.form.inherit</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="arch" type="xml">
+        <xpath expr="//field[@name='payment_term_id']" position="after">
+            <field name="order_type_id" options="{'no_create': True}" required="1" attrs="{'readonly': [('state', 'in', ['sale', 'done'])]}"/>
+        </xpath>
+        </field>
+    </record>
+
+    <record id="view_order_type_form" model="ir.ui.view">
+        <field name="name">sale.order.type.form</field>
+        <field name="model">sale.order.type</field>
+        <field name="arch" type="xml">
+        <form string="Sales Order Type">
+        <sheet>
+            <group>
+                <field name="name"/>
+                <field name="sequence_id"/>
+            </group>
+        </sheet>
+        </form>
+        </field>
+    </record>
+
+    <record id="view_sale_order_type_tree" model="ir.ui.view">
+        <field name="name">sale.order.type.tree</field>
+        <field name="model">sale.order.type</field>
+        <field name="arch" type="xml">
+        <tree string="Sale Order Type">
+           <field name="name"/>
+           <field name="sequence_id"/>
+        </tree>
+        </field>
+    </record>
+
+     <record id="action_sale_order_type" model="ir.actions.act_window">
+         <field name="name">Sale Order Type</field>
+         <field name="type">ir.actions.act_window</field>
+         <field name="res_model">sale.order.type</field>
+         <field name="view_mode">tree,form</field>
+    </record>
+
+     <menuitem id="sale_order_type_config"
+            name="Sale Order Type"
+            parent="sale.menu_sale_config"
+            action="multiple_sequence_number.action_sale_order_type"
+            sequence="4"/>
+</odoo>
