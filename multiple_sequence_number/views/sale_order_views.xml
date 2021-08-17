@@ -7,7 +7,7 @@
         <field name="inherit_id" ref="sale.view_order_form"/>
         <field name="arch" type="xml">
         <xpath expr="//field[@name='payment_term_id']" position="after">
-            <field name="order_type_id" options="{'no_create': True}" required="1" attrs="{'readonly': [('state', 'in', ['sale', 'done'])]}"/>
+            <field name="order_type_id" options="{'no_create': True}" attrs="{'readonly': [('state', 'in', ['sale', 'done'])]}"/>
         </xpath>
         </field>
     </record>
@@ -19,8 +19,8 @@
         <form string="Sales Order Type">
         <sheet>
             <group>
-                <field name="name"/>
-                <field name="sequence_id"/>
+                <field name="name" required="1"/>
+                <field name="sequence_id" required="1"/>
             </group>
         </sheet>
         </form>
