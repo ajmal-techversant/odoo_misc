@@ -26,8 +26,12 @@
             <field name="arch" type="xml">
                 <tree string="Container">
                     <field name="title"/>
+                    <field name="container_no"/>
                     <field name="log_no"/>
                     <field name="grade"/>
+                    <field name="length"/>
+                    <field name="diameter"/>
+                    <field name="volume"/>
                 </tree>
             </field>
         </record>
@@ -41,6 +45,7 @@
                         <group>
                             <group>
                                 <field name="title"/>
+                                <field name="container_no"/>
                                 <field name="log_no"/>
                                 <field name="diameter"/>
                             </group>
@@ -67,6 +72,7 @@
                 <search>
                     <field name="title" string="Title"/>
                     <field name="log_no" string="Log Number"/>
+                    <field name="container_no" string="Cont No."/>
                     <field name="grade" string="Grade"/>
                     <group expand="0" string="Group By">
                         <filter string="Log Number" name="log_no" context="{'group_by': 'log_no'}"/>

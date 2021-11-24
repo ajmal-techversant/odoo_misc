@@ -11,6 +11,7 @@ class Container (models.Model):
     grade = fields.Char(string="Quality/Grade")
     length = fields.Float(string="Length")
     volume = fields.Float(string="Volume")
+    container_no = fields.Char(string="Cont No.")
     
 
 
