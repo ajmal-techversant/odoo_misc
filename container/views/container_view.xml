@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="container_action" model="ir.actions.act_window">
+            <field name="name">Container</field>
+            <field name="res_model">container.container</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Create a new container
+                </p>
+            </field>
+        </record>
+
+        <menuitem id="menu_container"
+                  name="Container"
+                  parent="sale.sale_menu_root"
+                  action="container_action"
+                  sequence="5"/>
+
+
+        <record id="container_tree" model="ir.ui.view">
+            <field name="name">container.tree</field>
+            <field name="model">container.container</field>
+            <field name="arch" type="xml">
+                <tree string="Container">
+                    <field name="title"/>
+                    <field name="log_no"/>
+                    <field name="grade"/>
+                </tree>
+            </field>
+        </record>
+
+         <record id="container_form" model="ir.ui.view">
+            <field name="name">container.form</field>
+            <field name="model">container.container</field>
+            <field name="arch" type="xml">
+                <form string="Container">
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="title"/>
+                                <field name="log_no"/>
+                                <field name="diameter"/>
+                            </group>
+                            <group>
+                                <field name="grade"/>
+                                <field name="length"/>
+                                <field name="volume"/>
+                            </group>
+                        </group>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers"/>
+                        <field name="activity_ids" widget="mail_activity"/>
+                        <field name="message_ids" widget="mail_thread"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+
+
+
+    </data>
+</odoo>
