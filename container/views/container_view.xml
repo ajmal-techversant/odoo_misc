@@ -60,6 +60,22 @@
             </field>
         </record>
 
+        <record id="container_filter" model="ir.ui.view">
+            <field name="name">container.container.select</field>
+            <field name="model">container.container</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="title" string="Title"/>
+                    <field name="log_no" string="Log Number"/>
+                    <field name="grade" string="Grade"/>
+                    <group expand="0" string="Group By">
+                        <filter string="Log Number" name="log_no" context="{'group_by': 'log_no'}"/>
+                        <filter string="Grade" name="grade" context="{'group_by': 'grade'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
 
 
     </data>
